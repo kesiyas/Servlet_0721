@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주문하기</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>주문</h1>
+
+		<form method="get" action="/servlet/test07">
+			
+			<label>주소</label>
+			<input type="text" name="address" class="form-cotrol col-6">
+			
+			<label>결제카드</label>
+			<input type="text" name="card" class="form-cotrol col-6">
+			
+			<label>가격</label>
+			<input type="text" name="price" class="form-cotrol col-6">
+			
+			<button type="submit" class="btn btn-primary">주문</button>
+		</form>
+	</div>
+</body>
+</html>
