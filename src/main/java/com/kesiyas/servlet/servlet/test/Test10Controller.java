@@ -31,7 +31,7 @@ public class Test10Controller extends HttpServlet{
 		String Id = request.getParameter("Id");
 		String password = request.getParameter("password");
 		
-		out.println("<html><head><title>사용자 정보 확인</title></head><body>");
+		out.println("<html><head><title>로그인 확인</title></head><body>");
 		
 		if(!(userMap.get("id").equals(Id))) {
 			out.println("<h1>id가 일치하지 않습니다</h1>");
