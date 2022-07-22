@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.List;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +34,7 @@ public class Ex01Controller extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		out.println(now);
 		out.println(dateTimString);
+		
 	}
 	
 }
