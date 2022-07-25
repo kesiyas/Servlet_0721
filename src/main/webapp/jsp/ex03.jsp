@@ -15,15 +15,17 @@
 		
 		String animal = request.getParameter("animal");
 		
-		String select = null;
-		if(animal.equals("dog")) {
-			select = "dog";
-		}
+		String fruit = request.getParameter("fruit");
+		
+	
+		
+		
 	%>
 
 	<div class="container"><%= nickname %></div>
 
-	<div><%= select %></div>
+	<div><%= animal %></div>
+	<div><%= fruit %></div>
 
 
 </body>

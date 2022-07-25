@@ -17,7 +17,15 @@
 		<label>고양이 <input type="radio" name="animal" value="cat"></label>
 		<label>사자 <input type="radio" name="animal" value="lion"></label>
 		
+		<h4>좋아 하는 과일을 선택하세요.</h4>
+		<select name="fruit">
+			<option value="banana">바나나</option>
+			<option value="peach">복숭아</option>
+			<option>딸기</option>	
+		</select>
+		
 		<button type="submit">입력</button>
+	
 	
 	</form>
 
