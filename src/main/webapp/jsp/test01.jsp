@@ -57,15 +57,12 @@
 	
 		String birthDay = "20010820";
 		int birthYear = Integer.parseInt(birthDay.substring(0,4));
-				
+			
+		int age = (year-birthYear) + 1;
 	%>
 	
-	<h3>현재 나이는<%= (year-birthYear) + 1%>살 입니다.</h3>
+	<h3>현재 나이는 <%= age%>살 입니다.</h3>
 	
-	
-
-
-
 
 </body>
 </html>
