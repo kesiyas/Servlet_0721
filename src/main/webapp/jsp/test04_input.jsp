@@ -13,21 +13,19 @@
 		<h1>사칙 연산</h1>
 		
 		<form method="post" action="/jsp/test04.jsp">
-			
-			<input type="text" name="number">
-			<select name="calculation">
-				<option>+</option>
-				<option>-</option>
-				<option>X</option>
-				<option>/</option>						
-			</select>
-			<button type="submit">계산</button>
-		
+			<div class="d-flex">
+				<input type="text" name="number1" class="form-control col-3 mr-2">
+				<select name="calculation" class="form-control col-2 mr-2">
+					<option>+</option>
+					<option>-</option>
+					<option>X</option>
+					<option>/</option>						
+				</select>
+				<input type="text" name="number2" class="form-control col-3 mr-2">
+				<button type="submit" class="btn btn-success">계산</button>
+			</div>
 		</form>
-		
-		
-		
-		
+	
 	</div>
 
 
