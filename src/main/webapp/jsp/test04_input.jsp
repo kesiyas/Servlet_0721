@@ -16,10 +16,10 @@
 			<div class="d-flex">
 				<input type="text" name="number1" class="form-control col-3 mr-2">
 				<select name="calculation" class="form-control col-2 mr-2">
-					<option>+</option>
-					<option>-</option>
-					<option>X</option>
-					<option>/</option>						
+					<option value="plus">+</option>
+					<option value="minus">-</option>
+					<option value="multiple">X</option>
+					<option value="divide">/</option>						
 				</select>
 				<input type="text" name="number2" class="form-control col-3 mr-2">
 				<button type="submit" class="btn btn-success">계산</button>

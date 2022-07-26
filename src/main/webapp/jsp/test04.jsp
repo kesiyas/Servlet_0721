@@ -17,14 +17,21 @@
 	
 		double result = 0;
 		
-		if(symbols.equals("+")) {	
+		if(symbols.equals("plus")) {	
 			result = number1 + number2;
-		}else if(symbols.equals("-")) {
+			symbols = "+";
+			
+		}else if(symbols.equals("minus")) {
 			result = number1 - number2;
-		}else if(symbols.equals("X")) {
+			symbols = "-";
+			
+		}else if(symbols.equals("multiple")) {
 			result = number1 * number2;
+			symbols = "X";
+			
 		}else {
-			result = (double)number1 / number2;		
+			result = (double)number1 / number2;	
+			symbols = "/";
 		}
 	
 	%>

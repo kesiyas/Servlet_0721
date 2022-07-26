@@ -13,13 +13,14 @@
 		<h1>길이 변환</h1>
 		<form method="post" action="/jsp/test05.jsp">
 			<div class="d-flex">
-				<input text="type" name="number" class="form-control col-3"> cm
+				<input text="type" name="number" class="form-control col-3">
+				<div>cm</div>
 			</div>
 			<div class="mt-2">
-				<label>인치<input type="checkbox" name="length" value="inch"></label>
-				<label>야드<input type="checkbox" name="length" value="yard"></label>
-				<label>피트<input type="checkbox" name="length" value="ft"></label>
-				<label>미터<input type="checkbox" name="length" value="m"></label>
+				<label>인치 <input type="checkbox" name="length" value="inch"></label>
+				<label>야드 <input type="checkbox" name="length" value="yard"></label>
+				<label>피트 <input type="checkbox" name="length" value="ft"></label>
+				<label>미터 <input type="checkbox" name="length" value="m"></label>
 			</div>
 			<button type="submit" class="btn btn-success">변환</button>
 		</form>
