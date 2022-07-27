@@ -52,7 +52,7 @@
 				point = (double)list.get(i).get("point");
 					
 				if(check.equals("on")) {						
-					if(point > 4.0 && menu == list.get(i).get("menu")) { %>						
+					if(point > 4.0 && menu.equals(list.get(i).get("menu"))) { %>						
 						<tr>
 							<td class="text-center"><%= list.get(i).get("menu")%></td>
 							<td class="text-center"><%= list.get(i).get("name")%></td>

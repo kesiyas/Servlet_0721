@@ -60,6 +60,37 @@
     list.add(map);
 	%>
 
+	
+	<%
+		String title = request.getParameter("title");
+		String id = request.getParameter("id");
+	%>
+	
+	<% for(int i = 0; i < list.size(); i++) {
+			String bookTitle = String.valueOf((list.get(i).get("title")));
+			String author = String.valueOf((list.get(i).get("author")));
+			String publisher = String.valueOf((list.get(i).get("publisher")));
+			String image = String.valueOf((list.get(i).get("image")));
+			
+			if(title.equals(bookTitle)) { %>
+				<div class="container">
+					<div class="d-flex">
+						<img height="400" class="mr-2" src=<%= image%>>
+						
+						<div class="d-flex flex-column">
+							<span class="display-3"><%=bookTitle %></span>
+							<span class="text-info display-4 mt-2"><%=author %></span>
+							<h1 class="text-secondary mt-2"><%=publisher %></h1>
+						</div>		
+					</div>
+				</div>
+			
+			<% }
+			
+		} %>
+	
+	
+	
 
 
 
