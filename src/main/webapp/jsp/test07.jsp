@@ -30,40 +30,37 @@
 	    map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
 	    list.add(map);
 	         
+	    String menu = request.getParameter("menu");
+	    String check = request.getParameter("check");
 	%>
 	
-	<div class="container">
-		<h1 class="text-center">검색 결과</h1>
+	<div class="container text-center">
+		<h1>검색 결과</h1>
 		<table class="table">
-			
-			<tr>
-				<th class="text-center">메뉴</th>	
-				<th class="text-center">상호</th>	
-				<th class="text-center">별점</th>	
-			</tr>
-			
-			<%
-			String menu = request.getParameter("menu");
-		    String check = request.getParameter("check");
-			
-		    double point = 0;
-		
-			for(int i = 0; i < list.size(); i++){ 			
-				point = (double)list.get(i).get("point");
+			<thead>
+				<tr>
+					<th>메뉴</th>	
+					<th>상호</th>	
+					<th >별점</th>	
+				</tr>
+			</thead>
+			<tbody>
+			<%	for(Map<String, Object> store : list){ 			
+					double point = (double)store.get("point");
 					
-				if(check.equals("on")) {						
-					if(point > 4.0 && menu.equals(list.get(i).get("menu"))) { %>						
-						<tr>
-							<td class="text-center"><%= list.get(i).get("menu")%></td>
-							<td class="text-center"><%= list.get(i).get("name")%></td>
-							<td class="text-center"><%= list.get(i).get("point")%></td>			
-						</tr>
-					<% } 
-					} 
+					if(menu.equals(store.get("menu"))) {
+						if(check == null || point > 4.0) {	%>					
+												
+							<tr>
+								<td><%= store.get("menu")%></td>
+								<td><%= store.get("name")%></td>
+								<td><%= store.get("point")%></td>			
+							</tr>	
+				<% 		}
+					}
 				}%>	
-				
-				
-			
+			</tbody>	
+		
 		</table>
 	
 	</div>
