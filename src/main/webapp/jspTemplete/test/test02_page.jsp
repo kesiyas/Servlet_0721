@@ -87,9 +87,9 @@
 	musicInfo.put("composer", "아이유,이종훈,이채규");
 	musicInfo.put("lyricist", "아이유");
 	musicList.add(musicInfo);
+	
+	
 		
-	String musicTitle = request.getParameter("title");
-   	int musicId = Integer.parseInt(request.getParameter("id"));
 %>
 	
 
@@ -102,12 +102,41 @@
 			
 			<div class="d-flex p-3 border border-success">				
 				<%for(Map<String, Object> info : musicList) {
-					int id = (Integer)info.get("id");
-					
 					int minute = (Integer)info.get("time") / 60;
 					int second = (Integer)info.get("time") % 60;
 					
-					if(musicTitle.equals(info.get("title")) || musicId == id) { %>
+					if(request.getParameter("title") != null) {
+						
+						String musicTitle = request.getParameter("title");	
+						
+						if(musicTitle.equals(info.get("title"))) { %>
+							<img width="200" src=<%=info.get("thumbnail") %> alt="<%=info.get("title")%>">
+							<div class="d-flex flex-column ml-3">
+								<h1><%=info.get("title") %></h1>
+								<div class="text-success font-weight-bold"><%=info.get("singer") %></div>
+								
+								<div class="d-flex mt-1">
+									<div class="text-secondary">
+										<div>앨범</div>     
+										<div>재생시간 </div>
+										<div>작곡가</div> 
+										<div>작사가</div> 
+									</div>
+									<div class="ml-4 text-secondary">
+										<div><%=info.get("title") %></div>
+										<div><%= minute + " : " + second %></div>
+										<div><%=info.get("composer") %> </div>
+										<div><%=info.get("lyricist") %> </div>
+									</div>
+								</div>
+							</div>
+						
+				<% 		}									  
+					}else {
+						int musicId = Integer.parseInt(request.getParameter("id"));
+						int id = (Integer)info.get("id");
+											
+						if(musicId == id) { %>
 						<img width="200" src=<%=info.get("thumbnail") %> alt="<%=info.get("title")%>">
 						<div class="d-flex flex-column ml-3">
 							<h1><%=info.get("title") %></h1>
@@ -127,10 +156,10 @@
 									<div><%=info.get("lyricist") %> </div>
 								</div>
 							</div>
-						</div>
-						
-				<% }
-				} %>
+						</div>  	
+				<%		}	
+					} 
+				}%>
 			</div>
 				
 			<div class="mt-2">
