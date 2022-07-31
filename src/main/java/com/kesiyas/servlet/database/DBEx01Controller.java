@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kesiyas.servlet.common.MysqlService;
+import com.kesiyas.servlet.common.HomeMysqlService;
 
 @WebServlet("/db/ex01")
 public class DBEx01Controller extends HttpServlet{
@@ -24,28 +24,29 @@ public class DBEx01Controller extends HttpServlet{
 		
 		PrintWriter out = response.getWriter();
 		
-		MysqlService mysqlService = MysqlService.getInstance();
+		HomeMysqlService mysqlService = HomeMysqlService.getInstance();
 		
 		mysqlService.connect();
-		String selectQuery = "SELECT * FROM `usedgoods`;";
+		
+		String selectQuery = "SELECT * FROM `booking`;";
+		
 		ResultSet resultSet = mysqlService.select(selectQuery);
 		
 		try {
 			while(resultSet.next()) {
-				String title = resultSet.getString("title");
-				int price = resultSet.getInt("price");
+				String name = resultSet.getString("name");
+				String state = resultSet.getString("state");
 				
-				out.println("제목 : " + title + "가격 : " + price);
+				out.println("이름 : " + name + "상태 : " + state);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		String insertQuery = "INSERT INTO `usedgoods`\r\n"
-				+ "(`seller_id`, `title`, `price`, `description`, `picture`, `createdAt`, `updatedAt`)\r\n"
+		String insertQuery = "INSERT INTO `booking`\r\n"
+				+ "(`name`, `headcount`, `day`, `date`, `state`, `createdAt`, `updatedAt`)\r\n"
 				+ "Value\r\n"
-				+ "(3, '고양이 간식 팝니다', 2000, '저희 고양이가 까탈스러워서 안먹어요', NULL, now(), now());";
-		
+				+ "(최인섭, '5', 2, '2026-10-10', '확정', now(), now());";	
 		int count = mysqlService.update(insertQuery);
 		out.println("삽입결과  : " + count);
 		

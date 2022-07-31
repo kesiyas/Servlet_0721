@@ -6,23 +6,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class MysqlService {
+public class HomeMysqlService {
 	
-	private static MysqlService mysqlService = null;
+	private static HomeMysqlService mysqlService = null;
 
 	// url, urserId, password
 	
-	private final String url = "jdbc:mysql://localhost:3306/mydb_0707";
+	private final String url = "jdbc:mysql://localhost:3306/mydata";
 	private final String userId = "root";
 	private final String password = "root";
 	private Connection connection;
 	private Statement statement;
 	
 	// 객체를 얻어갈 수 있는 메소드
-	public static MysqlService getInstance() {
+	public static HomeMysqlService getInstance() {
 		
 		if(mysqlService == null) {
-			mysqlService = new MysqlService();
+			mysqlService = new HomeMysqlService();
 		}
 		return mysqlService;
 	}
