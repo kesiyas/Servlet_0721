@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kesiyas.servlet.common.MysqlService;
-import com.kesiyas.servlet.common.HomeMysqlService;
+//import com.kesiyas.servlet.common.HomeMysqlService;
 
 @WebServlet("/db/test01")
 public class DBtest01Controller extends HttpServlet{
@@ -22,7 +22,7 @@ public class DBtest01Controller extends HttpServlet{
 		
 		PrintWriter out = response.getWriter();
 		
-		HomeMysqlService mysqlService = HomeMysqlService.getInstance();
+		MysqlService mysqlService = MysqlService.getInstance();
 		
 		mysqlService.connect();
 		
@@ -52,6 +52,9 @@ public class DBtest01Controller extends HttpServlet{
 	
 		int count = mysqlService.update(insertQuery);
 		out.print("삽입 결과 : " + count);
+		
+		
+		mysqlService.disConnect();
 	}
 	
 	

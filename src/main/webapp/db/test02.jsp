@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import= "com.kesiyas.servlet.common.HomeMysqlService" %>
+<%@ page import= "com.kesiyas.servlet.common.MysqlService" %>
 <%@ page import= "java.sql.ResultSet" %>
 <%@ page import= "java.sql.SQLException" %>
 <!DOCTYPE html>
@@ -16,25 +16,12 @@
 </head>
 <body>
 	<%
-	String siteName = request.getParameter("name");
-	String siteUrl = request.getParameter("url");
-	
-	HomeMysqlService mysqlService = new HomeMysqlService();
-	mysqlService.connect();
-	
-	String insertQuery = "INSERT INTO `bookmark`\r\n"
-			+ "			(`name`, `url`, `createdAt`, `updatedAt`)\r\n"
-			+ "			VALUE\r\n"
-			+ "			(siteName, siteUrl, now(),now());";;
-			
-	mysqlService.update(insertQuery);
-	
-	String selectQuery = "SELECT `name`, `url` FROM `bookmark` ORDER BY `id` DESC;";
-	
-	ResultSet resultSet = mysqlService.select(selectQuery);
-	
-	
-	
+		MysqlService mysqlService = MysqlService.getInstance();
+		mysqlService.connect();
+		
+		String query = "SELECT `id`, `name`, `url` FROM `bookmark`;";
+		ResultSet resultSet = mysqlService.select(query);
+		
 	%>
 	
 	<div class="container">
@@ -43,25 +30,17 @@
 				<tr>
 					<th>사이트</th>
 					<th>사이트 주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-			<% try {
-				while(resultSet.next()) { 
-					String name = resultSet.getString("name");
-					String url = resultSet.getString("url");
-					%>
+			<% while(resultSet.next()) { %>
 					<tr>
-						<td><%=name %></td>
-						<td><a href=#><%=url %></a></td>	
+						<td><%=resultSet.getString("name") %></td>
+						<td><a href="<%=resultSet.getString("url") %>"><%=resultSet.getString("url") %></a></td>	
+						<td><a href="/db/test02/delete?id=<%= resultSet.getString("id") %>">삭제</a></td>
 					</tr>
-				<%}
-			} catch (SQLException e) {				
-				e.printStackTrace();
-			}
-			
-			mysqlService.disConnect();
-			%>	
+			<% } %>	
 				
 			</tbody>
 		

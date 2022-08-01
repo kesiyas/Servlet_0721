@@ -2,18 +2,17 @@ package com.kesiyas.servlet.database;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kesiyas.servlet.common.HomeMysqlService;
+import com.kesiyas.servlet.common.MysqlService;
+
+//import com.kesiyas.servlet.common.HomeMysqlService;
 
 @WebServlet("/db/ex01")
 public class DBEx01Controller extends HttpServlet{
@@ -24,7 +23,7 @@ public class DBEx01Controller extends HttpServlet{
 		
 		PrintWriter out = response.getWriter();
 		
-		HomeMysqlService mysqlService = HomeMysqlService.getInstance();
+		MysqlService mysqlService = MysqlService.getInstance();
 		
 		mysqlService.connect();
 		
