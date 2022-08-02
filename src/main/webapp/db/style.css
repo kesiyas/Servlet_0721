@@ -1,14 +1,30 @@
 @charset "UTF-8";
 
 header { 
-	width : 1000px;
+	width : 900px;
 	height : 100px;	
 	background-color: #e86b27;
 }
 
 nav { 
-	width : 1000px;
+	width : 900px;
 	height : 70px;
 	background-color: #e86b27;
 }
 
+section {
+	width : 900px;
+	height : 660px;
+}
+
+section > .box {
+	width : 290px;
+	height : 290px;
+	background-color: white;
+}
+
+
+footer {
+	width : 900px;
+	height :70px;
+}
