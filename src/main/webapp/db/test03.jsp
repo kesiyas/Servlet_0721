@@ -20,7 +20,7 @@
 	MysqlService mysqlService = MysqlService.getInstance();
 	mysqlService.connect();
 	
-	String query = "select seller.nickname, used_goods.picture, used_goods.title, used_goods.price, used_goods.id from seller a join used_goods b on a.id = b.sellerid ORDER BY b.id DESC";
+	String query = "select a.nickname, b.picture, b.title, b.price, b.id from seller a join used_goods b on a.id = b.sellerId ORDER BY b.id DESC";
 			
 	ResultSet resultSet = mysqlService.select(query);
 %>
@@ -37,13 +37,19 @@
 			%>
 			
 			<div id="<%=boxId %>" class="mt-3 p-3 d-flex flex-column text-left border border-warning box">
+				<% if(resultSet.getString("picture") == null) {%>
+					<div class="text-secondary noimg w-100">이미지 없음</div>
+				<%}else { %>
 				<img id="image" class="mt-1" height="170" src=<%= resultSet.getString("picture")%> alt="제품 사진">
+				
+				<%} %>
 				<div class="font-weight-bold mt-1"><%= resultSet.getString("title")%></div>
 				<div class="small mt-1"><%= resultSet.getInt("price")%>원</div>
 				<div class="text-warning mt-1"><%= resultSet.getString("nickname")%></div>
 			</div>
 			
-			<% } %>
+			<% 
+			} %>
 			
 		</section>
 	
@@ -54,8 +60,8 @@
 	<script>
 		$(document).ready(function(){
 		
-			$("#image").hover(function() {
-				$("#").css("background-color", "#db0d36");
+			$("#image").on("hover",function() {
+				$("#box1").css("background-color", "#db0d36");
 				alter("경고");
 			});
 	

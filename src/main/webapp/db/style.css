@@ -17,6 +17,14 @@ section {
 	height : 660px;
 }
 
+section .noimg {
+	height : 170px;
+	text-align : center;
+	line-height : 170px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
 section > .box {
 	width : 290px;
 	height : 290px;

@@ -12,7 +12,7 @@ public class MysqlService {
 
 	// url, urserId, password
 	
-	private final String url = "jdbc:mysql://localhost:3306/mydata";
+	private final String url = "jdbc:mysql://localhost:3306/mydb_0707";
 	private final String userId = "root";
 	private final String password = "root";
 	private Connection connection;
